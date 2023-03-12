@@ -1,6 +1,8 @@
 // Create global constant rps that stores the options
-const rps = ["rock", "paper", "scissor"];
-var userInput;          // Variable to store the user input
+const rps = ["rock", "paper", "scissor"];       // Array to store the options
+const rock = document.querySelector("#rock");   // Get the rock button
+const paper = document.querySelector("#paper"); // Get the paper button
+const scissor = document.querySelector("#scissor"); // Get the scissor button
 var compChoice;         // Variable to store the computer choice
 var userScore = 0;      // Variable to store user score
 var compScore = 0;      // Variable to store computer score
@@ -31,46 +33,66 @@ function userInputVal(userInput) {
     }
 }
 
+// Check the result of the round and display the result
 function roundCheck(userInput, compChoice) {
     if (userInput === compChoice) {
+        document.getElementById("choicestat").innerHTML = userInput + " ties with " + compChoice;
         return;
     }
     switch (compChoice) {
         case "rock":
             if (userInput === "paper") {
                 userScore ++;
+                document.getElementById("choicestat").innerHTML = "Paper defeats Rock";
             }
             else {
                 compScore ++;
+                document.getElementById("choicestat").innerHTML = "Scissor loses to Rock";
             }
             break;
         case "paper":
             if (userInput === "scissor") {
                 userScore ++;
+                document.getElementById("choicestat").innerHTML = "Scissor defeats to Paper";
             }
             else {
                 compScore ++;
+                document.getElementById("choicestat").innerHTML = "Rock loses to Paper";
             }
             break;
         case "scissor":
             if (userInput === "rock") {
                 userScore ++;
+                document.getElementById("choicestat").innerHTML = "Rock defeats Scissor";
             }
             else {
                 compScore ++;
+                document.getElementById("choicestat").innerHTML = "Paper loses to Scissor";
             }
             break;
     }
 }
 
 // Ask for user choice
-function game() {
-    while (compScore < 5 && userScore < 5) {
-        getCompChoice();
-        userInputVal("rock");
-        console.log(compChoice);
-        console.log(compScore, userScore);
-    }
+function game(userInput) {
+    getCompChoice();
+    userInputVal(userInput);
+    console.log(userInput, compChoice);
+    console.log(userScore, compScore);
+    document.getElementById("playerscore").innerHTML = userScore;
+    document.getElementById("compscore").innerHTML = compScore;
 }
 
-game();
+// Add event listeners to the buttons
+rock.addEventListener("click", function() {
+    game("rock");
+}
+);
+paper.addEventListener("click", function() {
+    game("paper");
+}
+);
+scissor.addEventListener("click", function() {
+    game("scissor");
+}
+);
