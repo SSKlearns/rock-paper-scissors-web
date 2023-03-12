@@ -3,6 +3,7 @@ const rps = ["rock", "paper", "scissor"];       // Array to store the options
 const rock = document.querySelector("#rock");   // Get the rock button
 const paper = document.querySelector("#paper"); // Get the paper button
 const scissor = document.querySelector("#scissor"); // Get the scissor button
+const restart = document.querySelector("#restart"); // Get the restart button
 var compChoice;         // Variable to store the computer choice
 var userScore = 0;      // Variable to store user score
 var compScore = 0;      // Variable to store computer score
@@ -73,14 +74,17 @@ function roundCheck(userInput, compChoice) {
     }
 }
 
+// Update scores
+function updateScore() {
+    document.getElementById("playerscore").innerHTML = userScore;
+    document.getElementById("compscore").innerHTML = compScore;
+}
+
 // Ask for user choice
 function game(userInput) {
     getCompChoice();
     userInputVal(userInput);
-    console.log(userInput, compChoice);
-    console.log(userScore, compScore);
-    document.getElementById("playerscore").innerHTML = userScore;
-    document.getElementById("compscore").innerHTML = compScore;
+    updateScore();
 }
 
 // Add event listeners to the buttons
@@ -96,3 +100,10 @@ scissor.addEventListener("click", function() {
     game("scissor");
 }
 );
+
+// Restart the game
+restart.addEventListener("click", function() {
+    userScore = 0;
+    compScore = 0;
+    updateScore();
+});
