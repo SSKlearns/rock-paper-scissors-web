@@ -104,9 +104,31 @@ h3 {
 }
 
 #playerscore {
+    text-align: center;
     color: navy
 }
 
+#compscore {
+    text-align: center;
+    color: navy;
+}
+
 #rock:hover {
-    size-adjust: 1.5;
+    transform: scale(1.1);
+    background-color: navy;
+}
+
+#paper:hover {
+    transform: scale(1.1);
+    background-color: navy;
+}
+
+#scissor:hover {
+    transform: scale(1.1);
+    background-color: navy;
+}
+
+#restart:hover {
+    transform: scale(1.1);
+    background-color: navy;
 }
