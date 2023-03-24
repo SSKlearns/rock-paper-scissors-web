@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <h1 class="title">Rock Paper Scissor</h1>
+    </nav>
+
+    <div class="scores">
+        <p class="playerscorearea">
+            <div>
+                <h3>You</h3>
+                <div id="playerscore">
+                </div>
+            </div>
+        </p>
+        <p class="compscorearea">
+            <div>
+                <h3>Computer</h3>
+                <div id="compscore">
+                </div>
+            </div>
+        </p>
+    </div>
+
+    <div id="choicestat">Choose your option</div>
+
+    <div class="gamearea">
+        <button  id="rock">
+            <img src="assets/rock.jpg">
+        </button>
+        <button id="paper">
+            <img src="assets/paper.jpg">
+        </button>
+        <button id="scissor">
+            <img src="assets/scissor.jpeg">
+        </button>
+        <button id="restart">
+            Restart
+        </button>
+    </div>
+    <script src="gameLogic.js"></script>
+</body>
+</html>
