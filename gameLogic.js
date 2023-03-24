@@ -8,6 +8,8 @@ var compChoice;         // Variable to store the computer choice
 var userScore = 0;      // Variable to store user score
 var compScore = 0;      // Variable to store computer score
 
+updateScore();
+
 // Create a random number between a given range
 function getRandInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -54,7 +56,7 @@ function roundCheck(userInput, compChoice) {
         case "paper":
             if (userInput === "scissor") {
                 userScore ++;
-                document.getElementById("choicestat").innerHTML = "Scissor defeats to Paper";
+                document.getElementById("choicestat").innerHTML = "Scissor defeats Paper";
             }
             else {
                 compScore ++;
@@ -106,4 +108,5 @@ restart.addEventListener("click", function() {
     userScore = 0;
     compScore = 0;
     updateScore();
+    document.getElementById("choicestat").innerHTML = "Choose your option";
 });
