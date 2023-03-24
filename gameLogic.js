@@ -82,11 +82,58 @@ function updateScore() {
     document.getElementById("compscore").innerHTML = compScore;
 }
 
+// Disable all buttons except for the "restart" button
+function disableButtons() {
+    const buttons = document.querySelectorAll('button:not(#restart)');
+    buttons.forEach(button => button.disabled = true);
+    buttons.forEach(button => button.hover = false);
+    buttons.forEach(button => button.classList.add("disabled"));
+  }
+  
+  // Enable all buttons
+  function enableButtons() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => button.disabled = false);
+    buttons.forEach(button => button.classList.remove("disabled"));
+  }
+  
+  // Wait for the restart button to be clicked
+  function waitForRestart() {
+    return new Promise(resolve => {
+        const button = document.getElementById('restart');
+        button.addEventListener('click', () => {
+            resolve();
+        });
+    });
+  }
+  
+  // Check if the game has ended
+  async function checkEnd() {
+    if (userScore === 5) {
+        disableButtons();
+        document.getElementById("choicestat").innerHTML = "You win!";
+        await waitForRestart();
+        userScore = 0;
+        compScore = 0;
+        enableButtons();
+    } 
+    
+    else if (compScore === 5) {
+        disableButtons();
+        document.getElementById("choicestat").innerHTML = "You lose!";
+        await waitForRestart();
+        userScore = 0;
+        compScore = 0;
+        enableButtons();
+    }
+  }
+  
 // Ask for user choice
 function game(userInput) {
     getCompChoice();
     userInputVal(userInput);
     updateScore();
+    checkEnd();
 }
 
 // Add event listeners to the buttons
