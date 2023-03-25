@@ -9,6 +9,7 @@ var compChoice;         // Variable to store the computer choice
 var userScore = 0;      // Variable to store user score
 var compScore = 0;      // Variable to store computer score
 
+alert("Welcome to Rock Paper Scissor Game! \n\nThe first one to score 5 points wins the game. \n\nClick on the restart button to restart the game. \n\nPlease set the browser zoom size to 100% for best experience. This is currently non responsive :( \n\nEnjoy!");
 updateScore();
 
 // Create a random number between a given range
